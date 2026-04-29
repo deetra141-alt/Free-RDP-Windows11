@@ -31,7 +31,7 @@ jobs:
 
     - name: Create User
       run: |
-        $username = "rdpuser"
+        $username = "rdp"
         $password = ConvertTo-SecureString "RDPpass123!" -AsPlainText -Force
         New-LocalUser -Name $username -Password $password -PasswordNeverExpires
         Add-LocalGroupMember -Group "Administrators" -Member $username
@@ -47,7 +47,7 @@ jobs:
     - name: Maintain Connection
       run: |
         Write-Host "RDP is ready!"
-        Write-Host "Username: rdpuser"
+        Write-Host "Username: rdp"
         Write-Host "Password: RDPpass123!"
         Write-Host "Connect using Tailscale IP"
         while ($true) { Start-Sleep -Seconds 60 }
